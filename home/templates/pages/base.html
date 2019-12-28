@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="I-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <title>{% block title %}{% endblock %}</title>
+     <style>
+      .footer-link{
+          color: #ccc;
+          font-size: 13px;
+          transition: all 3s;
+        }
+        .footer-link:hover{
+           color: #70aed2;
+           text-decoration: none;
+          }
+          header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .4),rgba(0, 0, 0, .5)) ,
+             url(images/home.jpg) no-repeat center center /cover;
+           }
+    </style>
+</head>
+<body>
+     <header>
+        <!-- navbar -->
+
+        <nav class="navbar navbar-expand-lg fixed-top nav-menu">
+          <a href="#" class="navbar-brand text-light text-uppercase">
+            <span class="h2 font-weight-bold">Blog</span> <span
+            class="h1">X</span>
+          </a>
+          <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <div class="bg-light line1">
+
+            </div>
+            <div class="bg-light line2">
+
+            </div>
+            <div class="bg-light line3">
+
+            </div>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end text-uppercase
+            font-weight-bold" id="myNavbar">
+                <ul class="navbar-nav ">
+                   <li class="nav-item">
+                     <a href="/" class="nav-link m-2 menu-item">Thông tin cá nhân</a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'blog'%}" class="nav-link m-2 menu-item">Blog</a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'contact'%}" class="nav-link m-2 menu-item">Liên hệ</a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'register'%}" class="nav-link m-2 menu-item">Đăng Ký</a>
+                   </li>
+                    <li class="nav-item">
+                        <a class="nav-link m-2 menu-item" href="{% url 'logout' %}">Đăng Xuất</a>
+                    </li>
+                     <li class="nav-item">
+                     <a  class="nav-link m-2 menu-item">{% if user.username %}
+                        {{user.username}}</a>
+                   </li>
+                     <li class="nav-item">
+                      {% else %}
+                        <a class="nav-link m-2 menu-item" href="{% url 'login' %}">Đăng Nhập</a>
+                     {% endif %}
+                   </li>
+                </ul>
+           </div>
+
+
+        </nav>
+        <!-- end navbar -->
+
+        <!-- banner -->
+        
+        <!-- end of header -->
+      </header>
+        <div class="row">
+            
+            <div class="col-sm-10">
+                 <div class="container-fluid">
+                    {% block content %}
+
+                    {% endblock %}
+                 </div>
+            </div>
+        </div>
+        <footer class="bg-dark px-5">
+      <div class="container-fluid">
+        <div class="row text-light py-4">
+          <div class="col-lg-4 col-sm-6">
+            <h5 class="pb-3">TRỤ SỞ HÀ NỘI</h5>
+            <p class="small">Tầng 21, tòa nhà Center Building, Hapulico Complex, số 1 Nguyễn Huy Tưởng,
+             p. Thanh Xuân Trung, quận Thanh Xuân, Hà Nội. Điện thoại: 024 7309 5555, máy lẻ 370.</p>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <h5 class="pb-3">Visit Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="footer-link">Home</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Mission</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Collection</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Gallery</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Customer</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Pricing</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <h5 class="pb-3">HỢP TÁC TRUYỀN THÔNG</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="footer-link text-uppercase">Customer Service</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link text-uppercase">Online chat</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link text-uppercase">Support</a>
+              </li>
+              <li>
+                <a href="#" class="text-info">photo@email.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-sm-6" id="Contact">
+            <h5 class="pb-3">CÔNG TY CỔ PHẦN VCCORP</h5>
+            <p class="small">Tầng 17, 19, 20, 21 Tòa nhà Center Building - Hapulico Complex, Số 1 Nguyễn Huy Tưởng, 
+              Thanh Xuân, Hà Nội.
+              Giấy phép số 2215/GP-TTĐT do Sở Thông tin và Truyền thông Hà Nội cấp ngày 10 tháng 4 năm 2019</p>
+              <form class="">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Email Address">
+                  <div class="input-group-append">
+                    <button type="button" class="btn bg-danger text-white text-uppercase font-weight-bold">Sign UP</button>
+
+                  </div>
+                </div>
+              </form>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                   <i class="fab fa-facebook-square fa-2x text-primary"></i> </li>
+                <li class="list-inline-item">
+                    <i class="fab fa-google-plus fa-2x text-danger"></i> </li>
+                <li class="list-inline-item">
+                     <i class="fab fa-instagram fa-2x text-primary"></i> </li>
+                 <li class="list-inline-item">
+                   <i class="fab fa-twitter fa-2x text-primary"></i> </li>
+                <li class="list-inline-item">
+                    <i class="fab fa-facebook-square fa-2x text-primary"></i> </li>
+              </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
