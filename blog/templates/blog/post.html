@@ -2,7 +2,7 @@
 
 {%  block title %}{{post.title}}{% endblock  %}
 {% block content %}
-<h3><a href='{% url 'post' post.id %}'>{{post.title}}</a></h3>
-<h5>on {{post.date}}</h5>
-{{post.body|safe|linebreaks}}
+<h3 class="my-4 mx-3"><a href='{% url 'post' post.id %}'>{{post.title}}</a></h3>
+<h5 class="my-4 mx-3">on {{post.date}}</h5>
+<div class="my-4 mx-3">{{post.body|safe|linebreaks}}</div>
 {% endblock  %}

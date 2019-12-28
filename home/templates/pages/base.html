@@ -17,70 +17,43 @@
            color: #70aed2;
            text-decoration: none;
           }
-          header {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, .4),rgba(0, 0, 0, .5)) ,
-             url(images/home.jpg) no-repeat center center /cover;
-           }
+        .container-fluid{
+          min-height: 400px;
+        }
+          
     </style>
 </head>
 <body>
      <header>
         <!-- navbar -->
-
-        <nav class="navbar navbar-expand-lg fixed-top nav-menu">
-          <a href="#" class="navbar-brand text-light text-uppercase">
-            <span class="h2 font-weight-bold">Blog</span> <span
-            class="h1">X</span>
-          </a>
-          <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#myNavbar">
-            <div class="bg-light line1">
-
-            </div>
-            <div class="bg-light line2">
-
-            </div>
-            <div class="bg-light line3">
-
-            </div>
-          </button>
-            <div class="collapse navbar-collapse justify-content-end text-uppercase
-            font-weight-bold" id="myNavbar">
-                <ul class="navbar-nav ">
+          <nav class="navbar flex-row-reverse  navbar-expand-sm bg-primary  navbar-light">
+                 <ul class="navbar-nav ">
                    <li class="nav-item">
-                     <a href="/" class="nav-link m-2 menu-item">Thông tin cá nhân</a>
+                     <a href="/" class="nav-link m-2 menu-item text-white ">Thông tin cá nhân</a>
                    </li>
                    <li class="nav-item">
-                     <a href="{% url 'blog'%}" class="nav-link m-2 menu-item">Blog</a>
+                     <a href="{% url 'blog'%}" class="nav-link m-2 menu-item text-white ">Blog</a>
                    </li>
                    <li class="nav-item">
-                     <a href="{% url 'contact'%}" class="nav-link m-2 menu-item">Liên hệ</a>
-                   </li>
-                   <li class="nav-item">
-                     <a href="{% url 'register'%}" class="nav-link m-2 menu-item">Đăng Ký</a>
+                     <a href="{% url 'register'%}" class="nav-link m-2 menu-item text-white ">Đăng Ký</a>
                    </li>
                     <li class="nav-item">
-                        <a class="nav-link m-2 menu-item" href="{% url 'logout' %}">Đăng Xuất</a>
+                        <a class="nav-link m-2 menu-item text-white " href="{% url 'logout' %}">Đăng Xuất</a>
                     </li>
                      <li class="nav-item">
-                     <a  class="nav-link m-2 menu-item">{% if user.username %}
+                     <a  class="nav-link m-2 menu-item text-white btn btn-outline-success px-4  ">{% if user.username %}
                         {{user.username}}</a>
                    </li>
                      <li class="nav-item">
                       {% else %}
-                        <a class="nav-link m-2 menu-item" href="{% url 'login' %}">Đăng Nhập</a>
+                        <a class="nav-link m-2 menu-item text-white " href="{% url 'login' %}">Đăng Nhập</a>
                      {% endif %}
                    </li>
                 </ul>
-           </div>
-
-
-        </nav>
-        <!-- end navbar -->
-
-        <!-- banner -->
-        
-        <!-- end of header -->
+          </nav>
+           
+       
+       
       </header>
         <div class="row">
             
